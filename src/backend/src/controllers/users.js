@@ -33,4 +33,34 @@ router.post('/cadastro', async (req, res) => {
     }
 })
 
+router.post('/login', async (req,res) => {
+    const {email, password} = req.body
+
+    if(!email || !password ){
+        return res.status(400).json({message: "Todos os campos são obrigatórios"})
+    }
+
+    try {
+        const user = await User.findOne({email})
+
+        if(user) {
+            const passwordMatch = await bcrypt.compare(password, user.password)
+
+            if(!passwordMatch) {
+                return res.status(400).json({message: "Senha incorreta"})
+            }
+            else {
+                return res.status(200).json({message: "Login realizado com sucesso!"})
+            }
+        }
+        else {
+            return res.status(400).json({message:"Email não cadastrado"})
+        }
+    }
+    catch(error) {
+        console.log("Erro ao fazer login ", error)
+        return res.status(500).json({message: 'Erro no servidor'})
+    }
+})
+
 export default router
