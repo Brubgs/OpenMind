@@ -4,7 +4,7 @@ import Category from '../models/Category.js'
 const router = express.Router()
 
 router.post('/criarCategoria', async (req,res) => {
-    const {name} = req.body
+    const name = req.body.name
 
     if(!name){
         return res.status(400).json({message: "Preencha o nome da categoria"})
@@ -22,6 +22,7 @@ router.post('/criarCategoria', async (req,res) => {
     }
     catch(error) {
         console.log('Erro ao cadastrar categoria', error)
+        return res.status(500).json({ message: "Erro interno ao cadastrar categoria" });
     }
 })
 

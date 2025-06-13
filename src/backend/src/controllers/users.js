@@ -1,5 +1,6 @@
 import express from 'express'
 import User from '../models/User.js'
+import Category from '../models/Category.js'
 import bcrypt from 'bcrypt'
 
 const router = express.Router()
@@ -61,6 +62,18 @@ router.post('/login', async (req,res) => {
         console.log("Erro ao fazer login ", error)
         return res.status(500).json({message: 'Erro no servidor'})
     }
+})
+
+router.get('/categorias', async(req,res) => {
+    try {
+        const categorias = await Category.find()
+        res.status(200).json(categorias)
+    }
+    catch(error) {
+        console.log('Erro ao listar categorias ', error)
+        res.status(500).json({ message: 'Erro ao buscar categorias' });
+    }
+    
 })
 
 export default router
