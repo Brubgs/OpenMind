@@ -42,3 +42,12 @@ button {
 
     transition: ease .5s;
 }
+
+.inputPadrao {
+    background-color: transparent;
+    border: 1px solid var(--cinza-claro);
+    border-radius: 8px;
+
+    
+    padding: 10px;
+}

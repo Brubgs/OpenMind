@@ -9,6 +9,8 @@ import Login from './pages/Login.jsx'
 import Postagens from './pages/Postagens.jsx'
 import Categorias from './pages/Categorias.jsx'
 import MeuPerfil from './pages/MeuPerfil.jsx'
+import CriarCategoria from './pages/Admin/CriarCategoria.jsx'
+import Admin from './pages/Admin/Admin.jsx'
 
 const router = createBrowserRouter([
   {
@@ -38,6 +40,14 @@ const router = createBrowserRouter([
         {
           path: '/perfil',
           element: <MeuPerfil/>
+        },
+        {
+          path: '/admin',
+          element: <Admin/>
+        },
+        {
+          path: '/admin/criarcategorias',
+          element: <CriarCategoria/>
         }
     ]
   }
