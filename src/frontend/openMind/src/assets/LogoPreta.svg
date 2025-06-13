@@ -1,0 +1,8 @@
+<svg width="286" height="456" viewBox="0 0 286 456" fill="none" xmlns="http://www.w3.org/2000/svg">
+<ellipse cx="143.777" cy="273" rx="142.223" ry="183" fill="#61B5B8"/>
+<ellipse cx="143.777" cy="252" rx="142.223" ry="183" fill="#000B24"/>
+<ellipse cx="143" cy="230" rx="142.223" ry="183" fill="black"/>
+<ellipse cx="142.223" cy="183" rx="142.223" ry="183" transform="rotate(180 142.223 183)" fill="#61B5B8"/>
+<ellipse cx="142.223" cy="204" rx="142.223" ry="183" transform="rotate(180 142.223 204)" fill="#000B24"/>
+<ellipse cx="143" cy="225" rx="142.223" ry="183" transform="rotate(180 143 225)" fill="black"/>
+</svg>
