@@ -15,14 +15,20 @@ export default function Login(){
         e.preventDefault()
 
         try {
-            const response = await api.post('/login', data)
-            alert(response.data.message)
+            if(!data.email || !data.password) {
+                alert('Preencha todos os campos!')
+            }
+            else {
+                const response = await api.post('/login', data)
+                alert(response.data.message)
 
-            setData({email: '', password: ''})
+                setData({email: '', password: ''})
 
-            setTimeout(() => {
-                navigate('/')
-            })
+                setTimeout(() => {
+                    navigate('/')
+                })
+            }
+            
         }
         catch (error) {
             console.log('Erro ao fazer login ', error)

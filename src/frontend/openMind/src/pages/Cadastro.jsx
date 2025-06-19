@@ -16,14 +16,20 @@ export default function Cadastro() {
         e.preventDefault()
 
         try {
-            const response = await api.post('/cadastro', data)
-            alert(response.data.message)
+            if(!data.name || !data.email || !data.password){
+                alert('Preencha todos os campos')
+            }
+            else {
+                const response = await api.post('/cadastro', data)
+                alert(response.data.message)
 
-            setData({ name: '', email: '', password: '' });
+                setData({ name: '', email: '', password: '' });
 
-            setTimeout(() => {
-                navigate('/login')
-            })
+                setTimeout(() => {
+                    navigate('/login')
+                })
+            }
+            
         }
         catch (error) {
             console.log(error)
