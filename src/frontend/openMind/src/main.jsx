@@ -11,6 +11,7 @@ import Categorias from './pages/Categorias.jsx'
 import MeuPerfil from './pages/MeuPerfil.jsx'
 import CriarCategoria from './pages/Admin/CriarCategoria.jsx'
 import Admin from './pages/Admin/Admin.jsx'
+import NovaPostagem from './pages/novaPostagem.jsx'
 
 const router = createBrowserRouter([
   {
@@ -40,6 +41,10 @@ const router = createBrowserRouter([
         {
           path: '/perfil',
           element: <MeuPerfil/>
+        },
+        {
+          path: '/novaPostagem',
+          element: <NovaPostagem/>
         },
         {
           path: '/admin',
