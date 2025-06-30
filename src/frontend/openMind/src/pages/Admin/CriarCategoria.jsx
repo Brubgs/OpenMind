@@ -22,6 +22,7 @@ export default function CriarCategoria(){
 
             if(msg) {
                 alert(msg)
+               setData({name:''})
             }
             else {
                 alert('Erro ao criar categoria. Tente novamente.');
