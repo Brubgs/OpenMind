@@ -6,7 +6,7 @@ export default function Card() {
             <div className="cardContainer">
                 <img src={gato} alt="" />
                 <div className='textContainer'>
-                    <h2>Miau</h2>
+                    <h2>Titulo</h2>
                     <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quas iusto labore similique. A, repellendus. Quae.</p>
                     <button className='cardButton'>Leia mais</button>
                 </div>
