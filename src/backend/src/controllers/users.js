@@ -147,8 +147,15 @@ router.post('/criarPost' , async (req,res) => {
     }
 })
 
-router.get('/postagens', (req,res) => {
-    
+router.get('/postagens', async (req,res) => {
+    try {
+        const postagens = await Post.find()
+        res.status(200).json(postagens)
+    }
+    catch(error) {
+        console.log('Erro ao listar postagens ', error)
+        res.status(500).json({ message: 'Erro ao buscar postagens' });
+    }
 })
 
 
