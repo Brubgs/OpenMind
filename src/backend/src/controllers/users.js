@@ -1,6 +1,7 @@
 import express from 'express'
 import User from '../models/User.js'
 import Category from '../models/Category.js'
+import Post from '../models/Post.js'
 import bcrypt from 'bcrypt'
 
 const router = express.Router()
@@ -64,6 +65,60 @@ router.post('/login', async (req,res) => {
     }
 })
 
+router.get('/usuarios', async(req,res) => {
+    try {
+        const usuarios = await User.find()
+        res.status(200).json(usuarios)
+    }
+    catch(error) {
+         console.log('Erro ao listar usuários', error)
+         return res.status(500).json({message: 'Erro ao listar usuários'})
+    }
+})
+
+router.get('/usuarios/:id', async(req,res) => {
+    const {id} = req.params
+    try {
+        const usuario = await User.findById(id)
+        res.status(200).json(usuario)
+    }
+    catch(error) {
+        console.log('Erro ao buscar usuário', error)
+        res.status(500).json({ mensagem: 'Erro ao buscar usuário' });
+    }
+})
+
+router.put('/editarUsuario/:id', async (req,res) => {
+    const {name, email, bio} = req.body
+    const {id} = req.params
+    try {
+        if (!name || !email) {
+            return res.status(400).json({ mensagem: 'Nome e email devem ser preenchidos' });
+        }
+
+        const usuario = await User.findOne({email})
+        if(usuario && usuario._id != id){
+            return res.status(400).json({ mensagem: 'Email já cadastrado' });
+        }
+        
+        const usuarioAtualizado = await User.findByIdAndUpdate(
+            id, 
+            {name, email, bio},
+            { new: true }
+        )
+
+        if (!usuarioAtualizado) {
+            return res.status(404).json({ mensagem: 'Usuário não encontrado' });
+        }
+        
+        res.status(200).json(usuarioAtualizado)
+    }
+    catch(error) {
+        console.log('Erro ao editar informações do usuário ', error)
+        res.status(500).json({ mensagem: 'Erro ao atualizar usuário' });
+    }
+})
+
 router.get('/categorias', async(req,res) => {
     try {
         const categorias = await Category.find()
@@ -75,5 +130,26 @@ router.get('/categorias', async(req,res) => {
     }
     
 })
+
+router.post('/criarPost' , async (req,res) => {
+    const {title, description, content} = req.body;
+
+    if(!title || !description || !content ){
+        return res.status(400).json({message: "Todos os campos são obrigatórios" })
+    }
+    
+    try {
+        const newPost = await Post.create({title, description, content})
+        res.status(201).json({message: "Postagem criada com sucesso"})
+    }
+    catch(error) {
+        console.log('Erro ao criar postagem ', error)
+    }
+})
+
+router.get('/postagens', (req,res) => {
+    
+})
+
 
 export default router
