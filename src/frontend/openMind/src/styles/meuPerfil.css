@@ -1,0 +1,69 @@
+.perfilContainer {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+
+    border: 1px solid var(--cinza-claro);
+    border-radius: 8px;
+
+    padding: 20px;
+    margin: 50px auto;
+    
+    width: 50%;
+}
+
+.perfilImg {
+    background-color: var(--cinza-claro);
+    width: 200px;
+    height: 200px;
+    border-radius: 100%;
+}
+
+.perfilInfo {
+    width: 75%;
+}
+
+.name {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.botaoEditar {
+    background-color: var(--azul);
+    border: none;
+    padding: 5px 10px;
+    border-radius: 8px;
+}
+
+.bio {
+    margin-bottom: 10px;
+}
+
+.followers {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 35px;
+}
+
+@media screen and (max-width:840px) {
+    .perfilContainer {
+        flex-direction: column;
+        align-items: center;
+        margin: 40px auto;
+        width: 70%;
+    }
+    .perfilInfo {
+        width: 100%;
+    }
+
+    .bio{
+        text-align: justify;
+    }
+
+    .followers {
+        flex-direction: column;
+        gap: 10px;
+    }
+}

@@ -22,7 +22,7 @@ export default function Home(){
                                 <h1>Seja bem vindo(a) ao OpenMind!</h1>
                             )}
                             
-                            <p>OpenMind é um espaço criado para compartilhar ideias sem rótulos. Aqui, falamos de tudo: tecnologia, comportamento, cotidiano, arte, reflexões, cultura e o que mais despertar a curiosidade. Nosso objetivo é oferecer conteúdos diversos, com uma linguagem acessível e autêntica, que incentive o pensamento aberto e o diálogo</p>
+                            <p>OpenMind é um espaço criado para compartilhar ideias sem rótulos. Aqui, falamos de tudo: tecnologia, comportamento, cotidiano, arte, reflexões, cultura e o que mais despertar a curiosidade. Nosso objetivo é oferecer conteúdos diversos, com uma linguagem acessível e autêntica, que incentive o pensamento aberto e o diálogo. Sinta-se em casa!</p>
                         </div>
                         
                         {!user ? (
