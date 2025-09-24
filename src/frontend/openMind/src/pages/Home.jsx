@@ -4,21 +4,34 @@ import { Link } from 'react-router-dom'
 import Card from '../components/Card'
 import CategoriasCard from '../components/CategoriasCard'
 
+import { useContext } from 'react'
+import { AuthContext } from '../AuthContext'
+
 export default function Home(){
+    const { user } = useContext(AuthContext);
+
     return(
         <>
             <div className='homeContainer'>
                 <section className='hero'>
                     <div className='heroText'>
                         <div>
-                            <h1>Seja bem vindo(a) ao OpenMind!</h1>
+                            {user ? (
+                                <h1>Seja bem vindo(a) ao OpenMind {user.name}!</h1>
+                            ): (
+                                <h1>Seja bem vindo(a) ao OpenMind!</h1>
+                            )}
+                            
                             <p>OpenMind é um espaço criado para compartilhar ideias sem rótulos. Aqui, falamos de tudo: tecnologia, comportamento, cotidiano, arte, reflexões, cultura e o que mais despertar a curiosidade. Nosso objetivo é oferecer conteúdos diversos, com uma linguagem acessível e autêntica, que incentive o pensamento aberto e o diálogo</p>
                         </div>
                         
-                        <div className='heroLink'>
-                            <p>Não tem uma conta? Faça <strong>cadastro</strong> aqui</p>
-                            <button className='botaoCadastro'><Link to='/cadastro'>Cadastro</Link></button>
-                        </div>
+                        {!user ? (
+                            <div className='heroLink'>
+                                <p>Não tem uma conta? Faça <strong>cadastro</strong> aqui</p>
+                                <button className='botaoCadastro'><Link to='/cadastro'>Cadastro</Link></button>
+                            </div>
+                        ): <></>}
+                        
                     </div>
                     <div className='heroLogo'>
                         <img src={logo} alt="" />

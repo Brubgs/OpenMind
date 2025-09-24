@@ -1,8 +1,18 @@
 import '../styles/header.css'
 import HamburgerMenu from './HamburgerMenu'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
+import { AuthContext } from '../AuthContext'
+import { useContext } from 'react'
 
 export function Header(){
+    const {user, logout} = useContext(AuthContext)
+    const navigate = useNavigate()
+
+    const handleLogout = () => {
+        logout()
+        navigate('/')
+    }
+
     return(
         <>
             <nav className='headerContainer'>
@@ -14,7 +24,12 @@ export function Header(){
                     <ul className='navigation'>
                         <Link to='/postagens'>Postagens</Link>
                         <Link to='/categorias'>Categorias</Link>
-                        <Link to='/perfil'>Meu perfil</Link>
+                         {user ? (
+                            <>
+                                <Link to='/perfil'>Meu perfil</Link>
+                                <Link onClick={handleLogout}>Sair</Link>
+                            </>
+                        ) : <></>}
                     </ul>
                     <div className='menuMobile'>
                         <HamburgerMenu/>

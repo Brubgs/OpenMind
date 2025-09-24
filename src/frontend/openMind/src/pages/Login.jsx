@@ -1,9 +1,13 @@
 import { Link, useNavigate } from 'react-router-dom'
 import { api } from '../api'
-import { useState } from 'react'
+import { useState, useContext } from 'react'
 import '../styles/cadastro.css'
 
+import { AuthContext } from '../AuthContext.jsx'
+
 export default function Login(){
+    const { login } = useContext(AuthContext);
+    
     const navigate = useNavigate()
     const[data, setData] = useState({email: '', password: ''})
 
@@ -20,7 +24,11 @@ export default function Login(){
             }
             else {
                 const response = await api.post('/login', data)
+                console.log("Resposta do login:", response.data)
                 alert(response.data.message)
+
+                const user = response.data.user
+                login(user)
 
                 setData({email: '', password: ''})
 
