@@ -9,7 +9,9 @@ import Login from './pages/Login.jsx'
 import Postagens from './pages/Postagens.jsx'
 import Categorias from './pages/Categorias.jsx'
 import MeuPerfil from './pages/MeuPerfil.jsx'
+
 import CriarCategoria from './pages/Admin/CriarCategoria.jsx'
+import ListaCategorias from './pages/Admin/ListaCategorias.jsx'
 import Admin from './pages/Admin/Admin.jsx'
 import NovaPostagem from './pages/novaPostagem.jsx'
 
@@ -53,6 +55,10 @@ const router = createBrowserRouter([
         {
           path: '/admin/criarcategorias',
           element: <CriarCategoria/>
+        },
+        {
+          path: '/admin/listarcategorias',
+          element: <ListaCategorias/>
         }
     ]
   }

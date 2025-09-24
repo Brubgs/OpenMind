@@ -26,4 +26,18 @@ router.post('/criarCategoria', async (req,res) => {
     }
 })
 
+router.delete('/deletarCategoria/:id', async (req,res) => {
+    const {id} = req.params
+
+    try {
+        const category = await Category.findByIdAndDelete(id)
+        if(!category) {
+            return res.status(404).json({message: "Categoria não encontrada"})
+        }
+    }
+    catch(error) {
+        console.log('Erro ao deletar categoria', error)
+    }
+})
+
 export default router
