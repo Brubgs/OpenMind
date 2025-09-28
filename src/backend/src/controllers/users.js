@@ -52,7 +52,8 @@ router.post('/login', async (req,res) => {
                 return res.status(400).json({message: "Senha incorreta"})
             }
             else {
-                return res.status(200).json({message: "Login realizado com sucesso!"})
+                const { _id, name, email } = user
+                return res.status(200).json({message: "Login realizado com sucesso!", user: { id: _id, name, email }})
             }
         }
         else {
