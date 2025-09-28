@@ -1,6 +1,5 @@
-import { useState } from "react"
+import { useState,useEffect } from "react"
 import { api } from "../api"
-import { useEffect } from "react"
 import '../styles/postagens.css'
 import { Link } from 'react-router-dom'
 
@@ -11,6 +10,7 @@ export default function Postagens(){
         try {
             const response = await api.get('/postagens')
             return response.data || []
+            
         }
         catch(error) {
              console.log("Erro ao listar postagens ", error)

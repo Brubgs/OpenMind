@@ -24,6 +24,7 @@ export function Header(){
                     <ul className='navigation'>
                         <Link to='/postagens'>Postagens</Link>
                         <Link to='/categorias'>Categorias</Link>
+                        <Link to='/buscar'>Buscar</Link>
                          {user ? (
                             <>
                                 <Link to='/perfil'>Meu perfil</Link>

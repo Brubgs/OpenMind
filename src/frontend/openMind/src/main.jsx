@@ -17,6 +17,7 @@ import CriarCategoria from './pages/Admin/CriarCategoria.jsx'
 import ListaCategorias from './pages/Admin/ListaCategorias.jsx'
 import Admin from './pages/Admin/Admin.jsx'
 import NovaPostagem from './pages/novaPostagem.jsx'
+import Busca from './pages/Busca.jsx';
 
 const router = createBrowserRouter([
   {
@@ -50,6 +51,10 @@ const router = createBrowserRouter([
         {
           path: '/novaPostagem',
           element: <NovaPostagem/>
+        },
+        {
+          path: '/buscar',
+          element: <Busca/>
         },
         {
           path: '/admin',

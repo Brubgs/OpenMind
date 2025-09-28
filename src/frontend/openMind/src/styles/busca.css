@@ -1,0 +1,39 @@
+.buscaContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    
+    margin: 10px auto;
+}
+
+.inputContainer {
+    display: flex;
+    gap: 15px;
+    
+    margin: 30px auto;
+}
+
+.userContainer {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+
+    border: 1px solid var(--cinza-claro);
+    border-radius: 8px;
+
+    width: 50%;
+    margin: 10px auto;
+    padding: 10px;
+}
+
+img {
+    width: 20%;
+
+    border-radius: 100%;
+}
+
+@media screen and (max-width:840px) {
+    .userContainer{
+        width: 80%;
+    }
+}
