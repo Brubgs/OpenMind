@@ -1,8 +1,16 @@
-h1 {
-
+.perfilContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 30px;
+    text-align: center;
 }
 
-.perfilContainer {
+h1 {
+    font-size: 30px;
+}
+.userContainer {
     display: flex;
     gap: 20px;
     align-items: center;
@@ -43,6 +51,7 @@ h1 {
 
 .bio {
     margin-bottom: 10px;
+    text-align: justify;
 }
 
 .followers {
@@ -52,7 +61,7 @@ h1 {
 }
 
 @media screen and (max-width:840px) {
-    .perfilContainer {
+    .userContainer {
         flex-direction: column;
         align-items: center;
         margin: 40px auto;

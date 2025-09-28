@@ -6,9 +6,9 @@ import '../styles/meuPerfil.css'
 export default function MeuPerfil(){
     const {user} = useContext(AuthContext)
     return (
-        <>
+        <div className="perfilContainer">
             <h1>Minhas informações</h1>
-            <div className="perfilContainer">
+            <div className="userContainer">
                 <div className="perfilImg">
 
                 </div>
@@ -26,6 +26,6 @@ export default function MeuPerfil(){
                     </div>
                 </div>
             </div>
-        </>
+        </div>
     )
 }
